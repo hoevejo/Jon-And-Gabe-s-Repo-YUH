@@ -71,3 +71,38 @@ exports.postOne = async function(req, res){
 	res.sendStatus(200);
 	return;
 }
+
+// Create the function for deleting a note.
+// export is so we can use it in app.js.
+exports.removeOne = async function(req, res){
+	Note.findById(id, function(err, doc){
+		if(err){
+			res.sendStatus(400);
+			console.log(err);
+			return;
+		}
+		doc.remove(callback);
+		
+	}
+	
+
+}
+
+// Create the function for overwrite a note.
+// export is so we can use it in app.js.
+exports.putOne = async function(req, res){
+	Note.put('/notes/:objectid' , (req, res, next)=>
+	{
+		let newNote = new note({
+			userId: req.params.userId,
+			subject: req.body.subject,
+			course: req.body.course,
+			note: req.body.note
+
+}
+
+// Create the function for update a note.
+// export is so we can use it in app.js.
+exports.updateOne = async function(req, res){
+
+}
